@@ -1,0 +1,23 @@
+/* transform:translateX(-100%) */
+/* means shift 100% from the starting point*/
+/* 50% half left from the starting point and half are fi;; */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 100px;
+  margin-left: 100px;
+  height: 20px;
+  width: 400px;
+  border: 1px solid gray;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.progress {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+  /* transform: translateX(-50%); */
+}
