@@ -1,0 +1,12 @@
+Problem Statement
+Q2: User Management App with Search, Filter, and Pagination
+
+You are tasked with building a React application that fetches user data from the JSONPlaceholder API and implements advanced functionality such as search, filter, and pagination. The app should display the user details and allow for dynamic filtering and navigation between pages. It must adhere to clean code practices and proper folder structure.
+src/
+|-- components/ # Reusable components (e.g., UserCard, SearchBar, Pagination, FilterDropdown)
+|-- services/ # API calls (e.g., fetchUsers.js)
+|-- hooks/ # Custom hooks (e.g., useFetch.js)
+|-- pages/ # Main pages (e.g., UsersPage.js)
+|-- App.js # Entry point of the application
+|-- index.js # ReactDOM render file
+|-- styles/ # CSS files or TailwindCSS classes (optional)

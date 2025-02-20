@@ -1,0 +1,13 @@
+Problem Statement:
+Q1: JSONPlaceholder API with CRUD Operations
+
+You are tasked with building a simple React application that fetches data from the JSONPlaceholder API, stores it in a state array, and implements CRUD operations. The app should include error handling and loading states while adhering to a clean folder structure. Below is the detailed breakdown of the requirements:
+
+src/
+|-- components/ # Reusable components (e.g., PostCard, Loader, ErrorMessage)
+|-- services/ # API calls (e.g., fetchPosts.js)
+|-- hooks/ # Custom hooks (e.g., useFetch.js for fetching data)
+|-- pages/ # Main pages (e.g., PostsPage.js)
+|-- App.js # Entry point of the application
+|-- index.js # ReactDOM render file
+|-- styles/ # CSS files or TailwindCSS classes (optional)
