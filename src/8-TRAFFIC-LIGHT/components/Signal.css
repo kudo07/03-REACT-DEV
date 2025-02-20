@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+.signal {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  margin: 1rem;
+  border: 1px solid black;
+}

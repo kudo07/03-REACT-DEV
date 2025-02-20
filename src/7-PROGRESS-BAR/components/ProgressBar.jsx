@@ -14,6 +14,9 @@ const ProgressBar = () => {
     }, 150);
     return () => {
       clearInterval(interval);
+      // when toggle off we have to remove the interval whole
+      // this is caused here memory leak if we click off even still the interval running because the timer
+      // runs one time
     };
   }, []);
   return (
