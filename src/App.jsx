@@ -6,6 +6,7 @@ import AppFifth from './5-CRUD-IMM/copy/AppFifth';
 import UserTable from './6-TABLE/COPY/UserTable';
 import AppEight from './7-PROGRESS-BAR/AppEight';
 import Trafiic from './8-TRAFFIC-LIGHT/components/Trafiic';
+import TabsApp from './9-TABS/TabsApp';
 
 function App() {
   // 1-CRUD-FETCH return <AppOne />;
@@ -15,8 +16,9 @@ function App() {
   // 5-CRUD-IMM return <AppFifth />;
   // 6-TABLE return <UserTable />;
   // 7- PROGRESSBAR return <AppEight />;
-  // 8-TRAFFIC-LIGHTS
-  return <Trafiic />;
+  // 8-TRAFFIC-LIGHT return <Trafiic />;
+  // 9
+  return <TabsApp />;
 }
 
 export default App;

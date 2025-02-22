@@ -1,0 +1,27 @@
+.dis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.button {
+  border: 1px solid black;
+
+  /* margin: 0.1rem; */
+}
+/* align: vertical
+justify: horizontal */
+.block {
+  height: 23rem;
+  width: 14.7rem;
+  border: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ongoing {
+  background-color: gray;
+  border-bottom: none;
+}
