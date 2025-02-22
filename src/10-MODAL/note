@@ -1,0 +1,18 @@
+The issue occurs because of event bubbling and timing in the event listener execution.
+
+Why mousedown works but click doesn't?
+When using click:
+
+The click event on the "Show Modal" button triggers setIsOpen(true), rendering the modal.
+After this, the click event listener on document fires.
+Since the modal is now present, the document click handler checks if the click happened outside (!modalRef.current.contains(event.target)).
+However, the click originated from the button, and the modal didn't exist at the exact moment the event started.
+Result: The modal opens but instantly closes due to the event propagation.
+When using mousedown:
+
+The mousedown event fires before the button click.
+At this moment, the modal is not yet present, so the document event doesn't trigger closing logic.
+The button's onClick fires next, setting isOpen to true and rendering the modal.
+Result: The modal stays open properly.
+Solution
+Use mousedown instead of click for detecting outside clicks, or use stopPropagation() in the button click to prevent the event from bubbling up immediately.
