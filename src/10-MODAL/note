@@ -17,3 +17,4 @@ Result: The modal stays open properly.
 Solution
 Use mousedown instead of click for detecting outside clicks, or use stopPropagation() in the button click to prevent the event from bubbling up immediately.
 https://chatgpt.com/c/67ba24ed-7548-800d-b35b-68624b9717c1
+jaise hi state change ho ui pe b dike

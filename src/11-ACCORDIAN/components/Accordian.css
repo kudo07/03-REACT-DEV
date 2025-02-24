@@ -1,0 +1,12 @@
+.heading {
+  /* height: 10rem;
+  width: 100%rem; */
+  border: 2px solid purple;
+  margin: 0.5rem;
+  position: relative;
+}
+span {
+  position: absolute;
+  right: 2rem;
+  cursor: pointer;
+}
