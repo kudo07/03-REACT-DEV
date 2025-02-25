@@ -1,6 +1,7 @@
 import AppOne from './1-CRUD-FETCH/1-COPY/AppOne';
 import AppModal from './10-MODAL/AppModal';
 import AppAccordian from './11-ACCORDIAN/AppAccordian';
+import AppInventory from './12-INVENTORY/AppInventory';
 import AppTwo from './2-USER-MANA/AppTwo';
 import AppThree from './3-TRAFFIC/copy/AppThree';
 import TodoPage from './4-CRUD-TODO/copy/TodoPage';
@@ -21,8 +22,9 @@ function App() {
   // 8-TRAFFIC-LIGHT return <Trafiic />;
   // 9 return <TabsApp />;
   // 10- MODAL return <AppModal />;
-  // 11- ACCORDIAN
-  return <AppAccordian />;
+  // 11- ACCORDIAN return <AppAccordian />;
+  // 12 - INVENTORY
+  return <AppInventory />;
 }
 
 export default App;
