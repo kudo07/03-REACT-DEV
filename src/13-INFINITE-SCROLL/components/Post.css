@@ -1,0 +1,14 @@
+.containerr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 350px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 5px;
+}
