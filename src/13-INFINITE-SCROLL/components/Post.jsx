@@ -2,14 +2,36 @@ import React, { useEffect } from 'react';
 import './Post.css';
 const Post = ({ data, setPage }) => {
   useEffect(() => {
+    // created the callback fucntion receivers an arrau of the observed elements(param)
+
     const lastImage = document.querySelector('.image-post:last-child');
     const observer = new IntersectionObserver(
       (param) => {
         console.log(param);
         if (param[0].isIntersecting) {
+          isIntersecting: false;
+          //   [IntersectionObserverEntry];
+          // 0
+          //   param[0];
+          //   0
+          // :
+          // IntersectionObserverEntry
+          // boundingClientRect
+          // :
+          // DOMRectReadOnly {x: 0, y: 925.7999877929688, width: 246.40000915527344, height: 350, top: 925.7999877929688, …}
+          // intersectionRatio
+          // :
+          // 0.9594285488128662
+          // intersectionRect
+          // :
+          // DOMRectReadOnly {x: 0, y: 925.7999877929688, width: 246.40000915527344, height: 335.8000183105469, top: 925.7999877929688, …}
+          // isIntersecting
+          // :
+          // true
+          //   if the lastimage has present there it return true other wise it return false
           observer.unobserve(lastImage);
           // if the the data fetch for the next one we unobserver it because it will become the first image in the next batch
-
+          // stop observing the last image once it appears, preventing duplicate triggers
           setPage((page) => page + 1);
         }
       },
@@ -20,6 +42,15 @@ const Post = ({ data, setPage }) => {
       return;
     }
     observer.observe(lastImage);
+    // the complete cleanup
+    return () => {
+      if (lastImage) {
+        // Stops watching the last image to prevent multiple triggers and memory leaks.
+        observer.unobserve(lastImage);
+      }
+      observer.disconnect();
+      //   Completely removes the observer when the component updates/unmounts.
+    };
   }, [data]);
   return (
     <div className="containerr">
@@ -68,3 +99,18 @@ export default Post;
 // :
 // {className: 'image-post', src: 'https://picsu
 // key=11
+// Issue: React re-renders the component whenever data updates.
+
+// Each re-render creates a new observer.
+// Old observers still exist and keep running in the background.
+// This can cause memory leaks and performance issues.
+// What Happens in Cleanup?
+// observer.unobserve(lastImage)
+
+// Stops watching the last image before it gets replaced in the next render.
+// observer.disconnect()
+
+// Completely removes the observer.
+// Why? Even if we unobserve() one element, the observer still exists in memory.
+// disconnect() clears all elements and ensures we don’t have multiple observers running.
+// If we don't do cleanup, old observers will stay in memory and listen to changes forever.
