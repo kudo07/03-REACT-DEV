@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AppTodo = () => {
   const [todos, setTodos] = useState([]);
@@ -10,6 +10,21 @@ const AppTodo = () => {
   const [editingTodo, setEditingTodo] = useState(null);
   const [editingText, setEditingText] = useState('');
   const todosPerPage = 5;
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodos(savedTodos);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => setError(''), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
   const addTodo = () => {
     if (newTodo.trim() === '') {
       setError('Todo cannot be empty');
