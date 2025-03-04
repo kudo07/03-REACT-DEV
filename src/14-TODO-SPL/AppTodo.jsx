@@ -7,7 +7,7 @@ const AppTodo = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [error, setError] = useState('');
-  const [editingTodo, setEditingTodo] = useState('');
+  const [editingTodo, setEditingTodo] = useState(null);
   const [editingText, setEditingText] = useState('');
   const todosPerPage = 5;
   const addTodo = () => {
@@ -67,8 +67,17 @@ const AppTodo = () => {
   };
   // filtered todos
   const filteredTodos = todos.filter((todo) => {
-    return 'ewfd';
+    return (
+      (statusFilter === 'all' || todo.status === statusFilter) &&
+      (todo.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        String(todo.id).includes(searchQuery))
+    );
   });
+  const indexOfLastTodo = currentPage * todosPerPage;
+  const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+  const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="p-5 max-w-4xl mx-auto">
       <h1 className="text-3xl font-bold mb-5">TODO APP</h1>
@@ -107,7 +116,7 @@ const AppTodo = () => {
         </div>
       </div>
       <ul className="list-none p-0">
-        {todos.map((todo) => (
+        {currentTodos.map((todo) => (
           <li
             key={todo.id}
             className="p-3 border border-gray-300 mb-3 flex justify-between items-center"
@@ -166,6 +175,21 @@ const AppTodo = () => {
           </li>
         ))}
       </ul>
+
+      <div className="flex justify-center gap-3 mt-5">
+        {Array.from(
+          { length: Math.ceil(filteredTodos.length / todosPerPage) },
+          (_, i) => (
+            <button
+              key={i}
+              onClick={() => paginate(i + 1)}
+              className="px-3 py-1 bg-gray-300 rounded"
+            >
+              {i + 1}
+            </button>
+          )
+        )}
+      </div>
     </div>
   );
 };
