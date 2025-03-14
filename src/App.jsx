@@ -4,6 +4,7 @@ import AppAccordian from './11-ACCORDIAN/AppAccordian';
 import AppInventory from './12-INVENTORY/AppInventory';
 import AppInfinite from './13-INFINITE-SCROLL/AppInfinite';
 import AppTodo from './14-TODO-SPL/AppTodo';
+import AppGrid from './15-GRID-LIGHT/AppGrid';
 import AppTwo from './2-USER-MANA/AppTwo';
 import AppThree from './3-TRAFFIC/copy/AppThree';
 import TodoPage from './4-CRUD-TODO/copy/TodoPage';
@@ -27,8 +28,10 @@ function App() {
   // 11- ACCORDIAN return <AppAccordian />;
   // 12 - INVENTORY return <AppInventory />;
   // 13 - INFINITE SCROLL return <AppInfinite />;
-  // 14-TODO-SPL
-  return <AppTodo />;
+  // 14-TODO-SPL  return <AppTodo />;
+  // 15-GRID-LIGHT
+
+  return <AppGrid />;
 }
 
 export default App;
