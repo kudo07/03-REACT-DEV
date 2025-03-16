@@ -6,6 +6,7 @@ import AppInfinite from './13-INFINITE-SCROLL/AppInfinite';
 import AppTodo from './14-TODO-SPL/AppTodo';
 import AppGrid from './15-GRID-LIGHT/AppGrid';
 import AppStar from './16-STAR-RATING/AppStar';
+import AppMemoUse from './17-USE-MEMO/AppMemoUse';
 import AppTwo from './2-USER-MANA/AppTwo';
 import AppThree from './3-TRAFFIC/copy/AppThree';
 import TodoPage from './4-CRUD-TODO/copy/TodoPage';
@@ -31,8 +32,9 @@ function App() {
   // 13 - INFINITE SCROLL return <AppInfinite />;
   // 14-TODO-SPL  return <AppTodo />;
   // 15-GRID-LIGHT  return <AppGrid />;
-  // 16-STAR RATING
-  return <AppStar />;
+  // 16-STAR RATING  return <AppStar />;
+  // 17- USE-MEMO
+  return <AppMemoUse />;
 }
 
 export default App;
