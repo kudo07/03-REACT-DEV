@@ -1,21 +1,23 @@
-import AppOne from './1-CRUD-FETCH/1-COPY/AppOne';
-import AppModal from './10-MODAL/AppModal';
-import AppAccordian from './11-ACCORDIAN/AppAccordian';
-import AppInventory from './12-INVENTORY/AppInventory';
-import AppInfinite from './13-INFINITE-SCROLL/AppInfinite';
-import AppTodo from './14-TODO-SPL/AppTodo';
-import AppGrid from './15-GRID-LIGHT/AppGrid';
-import AppStar from './16-STAR-RATING/AppStar';
-import AppMemo from './17-USEMEMO/AppMemo';
+// import AppOne from './1-CRUD-FETCH/1-COPY/AppOne';
+// import AppModal from './10-MODAL/AppModal';
+// import AppAccordian from './11-ACCORDIAN/AppAccordian';
+// import AppInventory from './12-INVENTORY/AppInventory';
+// import AppInfinite from './13-INFINITE-SCROLL/AppInfinite';
+// import AppTodo from './14-TODO-SPL/AppTodo';
+// import AppGrid from './15-GRID-LIGHT/AppGrid';
+// import AppStar from './16-STAR-RATING/AppStar';
+// import AppMemo from './17-USEMEMO/AppMemo';
+// import SearchType from './18-SEARCH-TYPEHEAD/SearchType';
+// import AppTwo from './2-USER-MANA/AppTwo';
+// import AppThree from './3-TRAFFIC/copy/AppThree';
+// import TodoPage from './4-CRUD-TODO/copy/TodoPage';
+// import AppFifth from './5-CRUD-IMM/copy/AppFifth';
+// import UserTable from './6-TABLE/COPY/UserTable';
+// import AppEight from './7-PROGRESS-BAR/AppEight';
+// import Trafiic from './8-TRAFFIC-LIGHT/components/Trafiic';
+// import TabsApp from './9-TABS/TabsApp';
+
 import SearchType from './18-SEARCH-TYPEHEAD/SearchType';
-import AppTwo from './2-USER-MANA/AppTwo';
-import AppThree from './3-TRAFFIC/copy/AppThree';
-import TodoPage from './4-CRUD-TODO/copy/TodoPage';
-import AppFifth from './5-CRUD-IMM/copy/AppFifth';
-import UserTable from './6-TABLE/COPY/UserTable';
-import AppEight from './7-PROGRESS-BAR/AppEight';
-import Trafiic from './8-TRAFFIC-LIGHT/components/Trafiic';
-import TabsApp from './9-TABS/TabsApp';
 
 function App() {
   // 1-CRUD-FETCH return <AppOne />;
