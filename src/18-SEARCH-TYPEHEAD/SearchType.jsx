@@ -21,6 +21,9 @@ const SearchType = () => {
     // 3 ABORT CONTROLLER
     const abortController = new AbortController();
     const { signal } = abortController;
+    // We create an AbortController instance and extract its signal, which is passed to the fetch request.
+
+    // This allows us to cancel the API call when the component re-renders.
 
     const fetchData = async () => {
       try {
@@ -50,13 +53,26 @@ const SearchType = () => {
     // fetchData()
     // 2-debounce
     const timerId = setTimeout(() => {
+      // when i write something in the input box fast as the render happend becaz the query changes
+      // to cancel an ongoing fetch req when the component re render due to state updates
+      // prevents unnecerily api call when the user types rapidly
+      // avoid race condition where delayed api response from an old request might overwirte newwer results
       // used callback here so we call like natively ()
       // setimeout(fetchData,1000) is also correct
       fetchData();
     }, 1000);
     return () => {
+      // the older timer is still running if we write before completing 1s
+      // a new timer is created
+      // the old timer must be cleared to aboid multiple api calls
       clearInterval(timerId);
+      // cancel the pending reauest when a new effect runs
+      // if the componnet unmounts it ensures that no network request continues in the background
+
       abortController.abort();
+      // Inside the cleanup function, abortController.abort() cancels the pending request when a new effect runs.
+
+      // If the component unmounts, it ensures that no network request continues in the background.
     };
   }, [query]);
 
@@ -82,3 +98,20 @@ const SearchType = () => {
 };
 
 export default SearchType;
+// Understanding the Timer Lifecycle
+// The useEffect runs every time query changes.
+
+// It creates a new timer (setTimeout) to fetch data after 1 second.
+
+// If the user types another character before 1 second:
+
+// The old timer is still running.
+
+// A new timer is created.
+
+// The old timer must be cleared to avoid multiple API calls.
+
+// When the component unmounts, the timer should be cleared to prevent memory leaks.
+
+// Key Rule
+// Whenever a state-dependent setTimeout is used inside useEffect, always clean up the previous timeout to ensure only the latest one executes.
