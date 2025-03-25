@@ -18,6 +18,7 @@
 // import TabsApp from './9-TABS/TabsApp';
 
 import SearchType from './18-SEARCH-TYPEHEAD/SearchType';
+import AppContextApi from './19-CONTEXT-API/AppContextApi';
 
 function App() {
   // 1-CRUD-FETCH return <AppOne />;
@@ -37,8 +38,9 @@ function App() {
   // 15-GRID-LIGHT  return <AppGrid />;
   // 16-STAR RATING  return <AppStar />;
   // 17- USE-MEMO return <AppMemo />;
-  // 18- SEARCH-TYPEHEAD
-  return <SearchType />;
+  // 18- SEARCH-TYPEHEAD return <SearchType />;
+  // 19-CONTEXT-API-THEME
+  return <AppContextApi />;
 }
 
 export default App;
