@@ -17,12 +17,11 @@ export const ThemeProvider = ({ children }) => {
     localStorage.setItem('theme', newTheme);
   };
   useEffect(() => {
-    document.body.className = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      <div className={theme}>{children}</div>
     </ThemeContext.Provider>
   );
 };
