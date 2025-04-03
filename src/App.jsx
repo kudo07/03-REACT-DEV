@@ -39,8 +39,8 @@ function App() {
   // 16-STAR RATING  return <AppStar />;
   // 17- USE-MEMO return <AppMemo />;
   // 18- SEARCH-TYPEHEAD return <SearchType />;
-  // 19-CONTEXT-API-THEME
-  return <AppContextApi />;
+  // 19-CONTEXT-API-THEME  return <AppContextApi />;
+  return;
 }
 
 export default App;
