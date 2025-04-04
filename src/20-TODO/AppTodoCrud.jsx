@@ -38,6 +38,15 @@ const AppTodoCrud = () => {
       )
     );
   };
+  // filtered todos
+  const filteredTodos = todos.filter((todo) => {
+    return (
+      todo.title.toLowerCase().includes(search.toLowerCase()) &&
+      (filter === 'all' ||
+        (filter === 'completed' && todo.completed) ||
+        (filter === 'active' && !todo.completed))
+    );
+  });
   return (
     <div className="mx-auto min-h-screen flex flex-col items-center">
       <div className="bg-white shadow-md rounded-lg flex flex-col w-lg gap-5 mt-10">
@@ -88,6 +97,59 @@ const AppTodoCrud = () => {
             CLEAR COMPLETED
           </button>
         </div>
+        <table className="w-full border-collapse">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="p-2 text-left">TASK</th>
+              <th className="p-2">DONE</th>
+              <th className="p-2">ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredTodos.map((todo) => (
+              <tr key={todo.id} className="border-t">
+                <td
+                  className={`p-2 ${
+                    todo.completed ? 'line-through text-gray-500' : ''
+                  }`}
+                >
+                  {editingId === todo.id ? (
+                    <input
+                      value={editinText}
+                      onChange={(e) => setEditingText(e.target.value)}
+                      autoFocus
+                      className="p-1 border rounded-lg w-full"
+                    />
+                  ) : (
+                    todo.title
+                  )}
+                </td>
+                <td className="p-2 text-center">
+                  <input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={() => toggleComplete(todo.id)}
+                  />
+                </td>
+                <td className="p-2 flex gap-2 justify-center">
+                  {editingId === todo.id ? (
+                    <button
+                      onClick={() => saveEdit(todo.id)}
+                      className="bg-amber-500 text-black px-3 py-2 rounded-lg"
+                    >
+                      SAVE
+                    </button>
+                  ) : (
+                    <>
+                      <button></button>
+                      <button></button>
+                    </>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
