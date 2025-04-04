@@ -22,7 +22,7 @@ const AppTodoCrud = () => {
   };
   //   delete todo
   const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todos.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
   //completed count
   const completedCount = todos.filter((todo) => todo.completed).length;
@@ -47,6 +47,21 @@ const AppTodoCrud = () => {
         (filter === 'active' && !todo.completed))
     );
   });
+  // startEditing
+  const startEditing = (id, title) => {
+    setEditingId(id);
+    setEditingText(title);
+  };
+  // save edit
+  const saveEdit = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, title: editinText } : todo
+      )
+    );
+    setEditingId(null);
+    setEditingText('');
+  };
   return (
     <div className="mx-auto min-h-screen flex flex-col items-center">
       <div className="bg-white shadow-md rounded-lg flex flex-col w-lg gap-5 mt-10">
@@ -141,8 +156,15 @@ const AppTodoCrud = () => {
                     </button>
                   ) : (
                     <>
-                      <button></button>
-                      <button></button>
+                      <button
+                        onClick={() => startEditing(todo.id, todo.title)}
+                        className="bg-yellow-500 text-white px-3 py-1 rounded-lg"
+                      >
+                        EDIT
+                      </button>
+                      <button onClick={() => deleteTodo(todo.id)}>
+                        DELETE
+                      </button>
                     </>
                   )}
                 </td>
