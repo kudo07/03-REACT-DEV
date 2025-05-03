@@ -8,7 +8,9 @@ export const useForm = () => useContext(FormContext);
 
 export const FormProvider = ({ children }) => {
   const { state, dispatch } = FormReducer();
-  <FormContext.Provider value={{ state, dispatch }}>
-    {children}
-  </FormContext.Provider>;
+  return (
+    <FormContext.Provider value={{ state, dispatch }}>
+      {children}
+    </FormContext.Provider>
+  );
 };
